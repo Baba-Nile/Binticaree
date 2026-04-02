@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>BintiCare | Our Team</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700;800;900&display=swap" rel="stylesheet">
+
+<style>
+
+/* ================= GLOBAL ================= */
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+body{
+  font-family:'Outfit', sans-serif;
+  background:#fff;
+  color:#222;
+  line-height:1.6;
+}
+
+section{
+  padding:110px 8%;
+}
+
+/* ================= HERO ================= */
+.team-hero{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  align-items:center;
+  min-height:90vh;
+  gap:60px;
+
+  background:linear-gradient(180deg,#fff0f6,#ffffff);
+}
+
+.hero-text h1{
+  font-size:clamp(2.8rem,5vw,4.5rem);
+  font-weight:900;
+  color:#880e4f;
+  line-height:1.1;
+}
+
+.hero-text p{
+  margin-top:20px;
+  font-size:1.1rem;
+  color:#555;
+}
+
+.section-tag{
+  font-size:12px;
+  letter-spacing:3px;
+  text-transform:uppercase;
+  color:#d81b60;
+  font-weight:700;
+}
+
+/* IMAGE */
+.hero-image img{
+  width:100%;
+  border-radius:20px;
+  box-shadow:0 30px 80px rgba(0,0,0,0.1);
+}
+
+/* ================= LEADERS ================= */
+.leaders{
+  background:#fff;
+}
+
+.section-title{
+  text-align:center;
+  margin-bottom:60px;
+}
+
+.section-title h2{
+  font-size:clamp(2.5rem,5vw,4rem);
+  font-weight:900;
+  color:#880e4f;
+}
+
+.leaders-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+  gap:30px;
+}
+
+.leader-card{
+  text-align:center;
+  padding:25px;
+  border-radius:18px;
+  background:#fff;
+  box-shadow:0 20px 50px rgba(0,0,0,0.08);
+  transition:0.3s;
+}
+
+.leader-card:hover{
+  transform:translateY(-10px);
+}
+
+.leader-card img{
+  width:100%;
+  border-radius:15px;
+  margin-bottom:15px;
+}
+
+.leader-card h3{
+  font-weight:800;
+  color:#ff2e7a;
+}
+
+/* ================= TEAM ================= */
+.team{
+  background:linear-gradient(180deg,#ffffff,#fff0f6);
+}
+
+.team-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  gap:25px;
+}
+
+.team-card{
+  background:#fff;
+  padding:25px;
+  border-radius:16px;
+  text-align:center;
+  box-shadow:0 15px 40px rgba(0,0,0,0.06);
+  transition:0.3s;
+}
+
+.team-card:hover{
+  transform:translateY(-8px);
+}
+
+.team-avatar{
+  width:70px;
+  height:70px;
+  margin:auto;
+  border-radius:50%;
+  background:#ffe4ef;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-weight:800;
+  color:#ff2e7a;
+  margin-bottom:15px;
+}
+
+/* ================= VALUES ================= */
+.values{
+  background:#fff;
+  text-align:center;
+}
+
+.values-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:25px;
+  margin-top:40px;
+}
+
+.value-card{
+  padding:30px;
+  border-radius:18px;
+  background:#fff;
+  box-shadow:0 20px 50px rgba(0,0,0,0.08);
+  transition:0.3s;
+}
+
+.value-card:hover{
+  transform:translateY(-8px);
+}
+
+/* ================= CTA ================= */
+.cta{
+  background:linear-gradient(90deg,#ff2e7a,#ff8fb3);
+  color:#fff;
+  text-align:center;
+}
+
+.cta h2{
+  font-size:2.5rem;
+  margin-bottom:10px;
+}
+
+.cta button{
+  margin-top:20px;
+  padding:14px 30px;
+  border:none;
+  border-radius:50px;
+  background:#fff;
+  color:#ff2e7a;
+  font-weight:700;
+  cursor:pointer;
+  transition:0.3s;
+}
+
+.cta button:hover{
+  transform:translateY(-3px);
+}
+
+/* ================= FOOTER ================= */
+footer{
+  background:#111;
+  color:#aaa;
+  text-align:center;
+  padding:40px;
+}
+
+/* ================= RESPONSIVE ================= */
+@media(max-width:900px){
+  .team-hero{
+    grid-template-columns:1fr;
+    text-align:center;
+  }
+
+  .values-grid{
+    grid-template-columns:1fr;
+  }
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- HERO -->
+<section class="team-hero">
+
+<div class="hero-text">
+<span class="section-tag">OUR TEAM</span>
+
+<h1>
+Meet the people<br>
+behind BintiCare
+</h1>
+
+<p>
+Our team is driven by passion, compassion, and purpose.
+Together, we are building a future where every girl has
+access to dignity, opportunity, and a voice.
+</p>
+</div>
+
+<div class="hero-image">
+<img src="girl 2.jpg">
+</div>
+
+</section>
+
+<!-- LEADERS -->
+<section class="leaders">
+
+<div class="section-title">
+<h2>Leadership</h2>
+</div>
+
+<div class="leaders-grid">
+
+<div class="leader-card">
+<img src="girl 2.jpg">
+<h3>Executive Director</h3>
+<p>Vision and strategy</p>
+</div>
+
+<div class="leader-card">
+<img src="girl 2.jpg">
+<h3>Program Director</h3>
+<p>Programs & outreach</p>
+</div>
+
+<div class="leader-card">
+<img src="girl 2.jpg">
+<h3>Operations Lead</h3>
+<p>Daily operations</p>
+</div>
+
+</div>
+
+</section>
+
+<!-- TEAM -->
+<section class="team">
+
+<div class="section-title">
+<h2>Our Team</h2>
+</div>
+
+<div class="team-grid" id="teamGrid"></div>
+
+</section>
+
+<!-- VALUES -->
+<section class="values">
+
+<div class="section-title">
+<h2>Our Values</h2>
+</div>
+
+<div class="values-grid">
+
+<div class="value-card">
+<h3>Dignity</h3>
+<p>Every girl deserves respect and opportunity.</p>
+</div>
+
+<div class="value-card">
+<h3>Empowerment</h3>
+<p>We equip girls with tools to thrive.</p>
+</div>
+
+<div class="value-card">
+<h3>Community</h3>
+<p>We build strong, supportive environments.</p>
+</div>
+
+</div>
+
+</section>
+
+<!-- CTA -->
+<section class="cta">
+
+<h2>Join Our Mission</h2>
+<p>Be part of something bigger. Help us empower girls.</p>
+
+<button>Get Involved</button>
+
+</section>
+
+<!-- FOOTER -->
+<footer>
+<p>© 2026 BintiCare Foundation</p>
+</footer>
+
+<script>
+
+/* ================= TEAM DATA ================= */
+const team = [
+  "Mary","Jane","Faith","Aisha","Grace",
+  "Lilian","Mercy","Diana","Naomi","Ruth"
+];
+
+/* ================= RENDER ================= */
+const grid = document.getElementById("teamGrid");
+
+team.forEach(name=>{
+  const card = document.createElement("div");
+  card.className="team-card";
+
+  card.innerHTML=`
+    <div class="team-avatar">${name[0]}</div>
+    <h4>${name}</h4>
+    <p>Team Member</p>
+  `;
+
+  grid.appendChild(card);
+});
+
+/* ================= SIMPLE ANIMATION ================= */
+window.addEventListener("scroll",()=>{
+  document.querySelectorAll(".team-card").forEach(card=>{
+    const top = card.getBoundingClientRect().top;
+    if(top < window.innerHeight - 100){
+      card.style.opacity = 1;
+      card.style.transform = "translateY(0)";
+    }
+  });
+});
+
+</script>
+
+</body>
+</html>jan

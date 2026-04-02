@@ -1,0 +1,1251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>BintiCare Foundation | Empowering Girls</title>
+
+<!-- FONTS -->
+<style>
+body { font-family: Calibri, Arial, sans-serif; }
+</style>
+
+<!-- ICONS -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+<style>
+
+/* ================= ROOT ================= */
+:root{
+  --primary:#ff69b4;
+  --secondary:#d63384;
+  --light:#fff0f5;
+  --dark:#222;
+}
+
+/* ================= GLOBAL ================= */
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+body{
+  background:#fff;
+  color:var(--dark);
+  line-height:1.6;
+}
+
+/* ================= CONTAINER ================= */
+.container{
+  width:90%;
+  max-width:1200px;
+  margin:auto;
+}
+
+ 
+ 
+
+/* ================= CONTACT ================= */
+form{
+  max-width:600px;
+  margin:auto;
+  display:flex;
+  flex-direction:column;
+  gap:15px;
+}
+
+input, textarea{
+  padding:12px;
+  border:1px solid #ddd;
+}
+
+/* ================= FOOTER ================= */
+footer{
+  background:#111;
+  color:#aaa;
+  text-align:center;
+  padding:40px;
+}
+
+/* ================= RESPONSIVE ================= */
+@media(max-width:768px){
+  .about-grid{
+    grid-template-columns:1fr;
+  }
+
+  .impact-grid{
+    grid-template-columns:1fr;
+    gap:20px;
+  }
+
+  .nav-links{
+    display:none;
+  }
+}
+
+</style>
+</head>
+
+<body>
+
+<header class="header">
+
+  <div class="nav-container">
+
+    <!-- LOGO -->
+    <div class="logo">
+      <img src="binti logo.jpg" alt="BintiCare Logo">
+    </div>
+
+    <!-- MOBILE TOGGLE -->
+    <button class="menu-toggle" onclick="toggleMenu()">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+
+    <!-- NAV -->
+    <nav id="nav" class="nav">
+
+      <a href="index.html" class="active">Home</a>
+
+      <!-- DROPDOWN 1 -->
+      <div class="dropdown">
+        <a href="#">Who We Are</a>
+        <div class="dropdown-menu">
+          <a href="About.html">About Us</a>
+          <a href="#">Our Team</a>
+          <a href="#">Our Story</a>
+        </div>
+      </div>
+
+      <!-- DROPDOWN 2 -->
+      <div class="dropdown">
+        <a href="#">What We Do</a>
+        <div class="dropdown-menu">
+          <a href="#education">Education</a>
+          <a href="uniform.html">Uniform A Child</a>
+          <a href="#impact">Impact</a>
+        </div>
+      </div>
+
+      <a href="news.html">News</a>
+
+      <!-- CTA -->
+      <a href="#donate" class="cta-btn">Support Us</a>
+
+    </nav>
+
+  </div>
+
+</header>
+
+<style>
+  /* ================= HEADER ================= */
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+
+  background: rgba(30, 0, 15, 0.65);
+  backdrop-filter: blur(20px);
+
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+
+  transition: all 0.35s ease;
+}
+
+/* ================= SHRINK ON SCROLL ================= */
+.header.shrink {
+  padding: 6px 0;
+  background: rgba(20, 0, 10, 0.95);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
+}
+
+/* ================= CONTAINER ================= */
+.nav-container {
+  max-width: 1200px;
+  margin: auto;
+  padding: 14px 24px;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* ================= LOGO ================= */
+.logo img {
+  height: 50px;
+  transition: 0.3s ease;
+}
+
+.header.shrink .logo img {
+  height: 40px;
+}
+
+.logo img:hover {
+  transform: scale(1.05);
+}
+
+/* ================= NAV ================= */
+.nav {
+  display: flex;
+  align-items: center;
+  gap: 26px;
+}
+
+/* ================= LINKS ================= */
+.nav a {
+  position: relative;
+  text-decoration: none;
+  color: #ffd6e7;
+  font-size: 15px;
+  font-weight: 500;
+  transition: 0.3s ease;
+}
+
+/* HOVER */
+.nav a:hover {
+  color: #fff;
+  text-shadow: 0 0 8px rgba(255, 105, 180, 0.5);
+}
+
+/* ACTIVE */
+.nav a.active {
+  color: #fff;
+  font-weight: 700;
+}
+
+/* ================= CTA ================= */
+.cta-btn {
+  padding: 10px 22px;
+  border-radius: 25px;
+
+  background: linear-gradient(90deg, #ff2e7a, #ff5a9e);
+  color: #fff !important;
+
+  font-weight: 600;
+  transition: 0.3s ease;
+}
+
+.cta-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(255, 46, 122, 0.4);
+}
+
+/* ================= DROPDOWN ================= */
+.dropdown {
+  position: relative;
+}
+
+.dropdown-menu {
+  position: absolute;
+  top: 120%;
+  left: 0;
+
+  min-width: 180px;
+  padding: 10px 0;
+
+  background: rgba(20, 0, 10, 0.95);
+  backdrop-filter: blur(20px);
+
+  border-radius: 10px;
+
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(10px);
+
+  transition: 0.3s ease;
+}
+
+/* SHOW */
+.dropdown:hover .dropdown-menu {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+/* DROPDOWN LINKS */
+.dropdown-menu a {
+  display: block;
+  padding: 10px 18px;
+  font-size: 14px;
+  color: #ffd6e7;
+}
+
+.dropdown-menu a:hover {
+  background: rgba(255, 105, 180, 0.15);
+  color: #fff;
+}
+
+/* ================= HAMBURGER ================= */
+.menu-toggle {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.menu-toggle span {
+  width: 26px;
+  height: 3px;
+  background: #ffd6e7;
+  border-radius: 4px;
+}
+
+/* ================= MOBILE ================= */
+@media (max-width: 768px) {
+
+  .menu-toggle {
+    display: flex;
+  }
+
+  .nav {
+    position: absolute;
+    top: 70px;
+    left: 0;
+    width: 100%;
+
+    background: rgba(20, 0, 10, 0.98);
+
+    flex-direction: column;
+    align-items: center;
+
+    max-height: 0;
+    overflow: hidden;
+
+    transition: 0.4s ease;
+  }
+
+  .nav.active {
+    max-height: 500px;
+    padding: 20px 0;
+  }
+
+  .nav a {
+    padding: 14px;
+    width: 100%;
+    text-align: center;
+  }
+
+  .dropdown-menu {
+    position: static;
+    opacity: 1;
+    visibility: visible;
+    transform: none;
+    background: transparent;
+  }
+}
+
+</style>
+
+<script>
+
+/* MOBILE MENU */
+function toggleMenu() {
+  document.getElementById("nav").classList.toggle("active");
+}
+
+/* SCROLL SHRINK EFFECT */
+window.addEventListener("scroll", () => {
+  const header = document.querySelector(".header");
+
+  if (window.scrollY > 50) {
+    header.classList.add("shrink");
+  } else {
+    header.classList.remove("shrink");
+  }
+});
+
+</script>
+
+<section class="news-banner">
+
+  <!-- BACKGROUND IMAGE -->
+  <div class="banner-bg">
+    <img src="https://scontent.fnbo15-1.fna.fbcdn.net/v/t39.30808-6/596440549_900119522346827_849567478613709989_n.jpg?stp=cp6_dst-jpg_p960x960_tt6&_nc_cat=109&ccb=1-7&_nc_sid=13d280&_nc_eui2=AeE0hivkQugvZQ9WwwqHjzO9VobL8n1Mbr1WhsvyfUxuvQaQxbLU71ZBk35aA0adqLEMovASEHhIDnPQDb9SoJxU&_nc_ohc=-WZ1CKVMrakQ7kNvwFp6fSp&_nc_oc=Ado_PCe6PYJpOEswYGUAfExci2FZIavVW4pRyrVTLDbH-1UlIKzIsOBt_lkfEgveQ5w&_nc_pt=5&_nc_zt=23&_nc_ht=scontent.fnbo15-1.fna&_nc_gid=jUXrjrjihqIVcp86WxGGzg&_nc_ss=7a3a8&oh=00_Af3KA7vpXov6RNH6r4m3Z1UKvdqeqOQ1CEld_GmcsV0xBw&oe=69D365DC" alt="BintiCare Impact">
+  </div>
+
+  <!-- OVERLAY -->
+  <div class="banner-overlay"></div>
+
+  <!-- CONTENT -->
+  <div class="news-banner-content">
+
+    <span class="section-tag">Latest Updates</span>
+
+    <h1>News & Stories</h1>
+
+    <p>
+      Stay updated with our programs, impact stories, and community initiatives.
+    </p>
+
+    <!-- BUTTONS -->
+    <div class="banner-actions">
+      <a href="index.html" class="btn-outline">← Home</a>
+      <a href="#donate" class="btn-primary">Donate Now</a>
+    </div>
+
+  </div>
+
+</section>
+<style>
+  /* ================= BANNER ================= */
+.news-banner {
+  position: relative;
+  padding: 90px 20px 80px;
+  text-align: center;
+  color: #fff;
+  overflow: hidden;
+}
+
+/* ================= BACKGROUND IMAGE ================= */
+.banner-bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+.banner-bg img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: brightness(0.65) contrast(105%);
+}
+
+/* ================= OVERLAY ================= */
+.banner-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    135deg,
+    rgba(255, 46, 122, 0.85),
+    rgba(255, 120, 170, 0.65)
+  );
+  z-index: 1;
+}
+
+/* ================= BLOBS ================= */
+.news-banner::before,
+.news-banner::after {
+  content: "";
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(80px);
+  z-index: 1;
+}
+
+/* LEFT BLOB */
+.news-banner::before {
+  width: 300px;
+  height: 300px;
+  background: rgba(255, 255, 255, 0.25);
+  top: -80px;
+  left: -80px;
+}
+
+/* RIGHT BLOB */
+.news-banner::after {
+  width: 350px;
+  height: 350px;
+  background: rgba(255, 105, 180, 0.35);
+  bottom: -100px;
+  right: -100px;
+}
+
+/* ================= CONTENT ================= */
+.news-banner-content {
+  position: relative;
+  z-index: 2;
+  max-width: 700px;
+  margin: auto;
+}
+
+/* TAG */
+.section-tag {
+  font-size: 11px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  font-weight: 700;
+  opacity: 0.9;
+}
+
+/* TITLE */
+.news-banner h1 {
+  font-size: clamp(2.2rem, 4vw, 3rem);
+  font-weight: 900;
+  margin: 12px 0;
+  line-height: 1.2;
+}
+
+/* TEXT */
+.news-banner p {
+  font-size: 1rem;
+  line-height: 1.7;
+  max-width: 550px;
+  margin: auto;
+  opacity: 0.95;
+}
+
+/* ================= BUTTONS ================= */
+.banner-actions {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+
+/* PRIMARY */
+.btn-primary {
+  padding: 11px 24px;
+  border-radius: 25px;
+  background: #fff;
+  color: #d81b60;
+  font-weight: 700;
+  font-size: 13px;
+  text-decoration: none;
+  transition: 0.3s ease;
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+}
+
+/* OUTLINE */
+.btn-outline {
+  padding: 11px 24px;
+  border-radius: 25px;
+  border: 1.5px solid rgba(255,255,255,0.8);
+  color: #fff;
+  font-weight: 600;
+  font-size: 13px;
+  text-decoration: none;
+  transition: 0.3s ease;
+}
+
+.btn-outline:hover {
+  background: #fff;
+  color: #d81b60;
+}
+
+/* ================= RESPONSIVE ================= */
+@media (max-width: 768px) {
+  .news-banner {
+    padding: 70px 20px 60px;
+  }
+}
+</style>
+
+ <div class="news-container">
+
+  <!-- ================= LEFT CONTENT ================= -->
+  <div class="news-content">
+
+    <!-- FEATURED ARTICLE -->
+    <article class="featured-news">
+
+      <div class="featured-image">
+        <img src="https://scontent.fnbo15-1.fna.fbcdn.net/v/t39.30808-6/621729911_928217679537011_930795371045951732_n.jpg?stp=dst-jpg_s1080x2048_tt6&_nc_cat=101&ccb=1-7&_nc_sid=13d280&_nc_eui2=AeHyUM7SoBXWOvq2bx_V6axBsZLpm8VCFVWxkumbxUIVVeq9YQ1eRMC7hpcUFjeTsHMK3EU4UNnZxmIAyjb7T4Wj&_nc_ohc=DaH9RsAWthkQ7kNvwHCPiTt&_nc_oc=AdpMddCvR0H0oyWmenGE_Wlv08X9KGwTAK2wDvAY5VT6oL0MnNeYFs1eDimSCkWyp2E&_nc_pt=5&_nc_zt=23&_nc_ht=scontent.fnbo15-1.fna&_nc_gid=KZ22SF18k1Fjvk0bldDWMg&_nc_ss=7a3a8&oh=00_Af0LWturplsBL3Yp-9_Gx5dRjkQVkCL0MFoR0aZvMyHd-Q&oe=69D370D7" alt="Empowering Girls">
+      </div>
+
+      <div class="featured-text">
+
+        <div class="meta">
+          <span class="category">Outreach</span>
+          <span class="date">March 12, 2026</span>
+        </div>
+
+        <h2>Empowering Girls Through Education Programs</h2>
+
+        <p>
+          BintiCare continues to expand access to education through targeted mentorship and school support initiatives across communities, helping young girls build brighter futures.
+        </p>
+
+        <a href="#" class="read-more">Read Full Story →</a>
+
+      </div>
+
+    </article>
+
+    <!-- ================= NEWS GRID ================= -->
+    <div class="news-grid">
+
+      <!-- CARD 1 -->
+      <article class="news-card">
+
+        <div class="news-image">
+          <img src="https://scontent.fnbo15-1.fna.fbcdn.net/v/t39.30808-6/617116660_925057259853053_646089834711078155_n.jpg?_nc_cat=108&ccb=1-7&_nc_sid=13d280&_nc_eui2=AeFSpgY8iyUuaTVVjTbcpqMtEG8ctWWy_ysQbxy1ZbL_KxV20-FKWsMet-hDMAGjkOgVzkJmK5sRREtC0ur_zumz&_nc_ohc=GgLa9SlLvZ8Q7kNvwHFEI7q&_nc_oc=AdqzsrM7KtPR4Lr43zsn3AOSVPyCl2z1cCUJYzLYrTR06pKM_N2BE6BwIXIRZ_O0Sas&_nc_pt=5&_nc_zt=23&_nc_ht=scontent.fnbo15-1.fna&_nc_gid=h6bTla5IH4uaB0Hs6I4I6Q&_nc_ss=7a3a8&oh=00_Af0nelAfONp2eeJhIZtMUCV0L84iGaKgB5aRjDVg-PkDDg&oe=69D3875F" alt="">
+        </div>
+
+        <div class="news-body">
+
+          <div class="meta">
+            <span class="category">Events</span>
+            <span class="date">Feb 28, 2026</span>
+          </div>
+
+          <h3>Annual Girls Empowerment Summit</h3>
+
+          <p>Bringing together young women leaders to inspire change and innovation.</p>
+
+        </div>
+
+      </article>
+
+      <!-- CARD 2 -->
+      <article class="news-card">
+
+        <div class="news-image">
+          <img src="https://scontent.fnbo15-1.fna.fbcdn.net/v/t39.30808-6/615871091_926779653014147_1581618522427530638_n.jpg?_nc_cat=108&ccb=1-7&_nc_sid=13d280&_nc_eui2=AeHpm_j2IrF3aimcYkoUxVxfSvSmrNP9645K9Kas0_3rjsybZKEWvVRQp4Vd6bVMyXbRNSDTJgGGhO_-11BaktrV&_nc_ohc=W95oHwTimTIQ7kNvwEG8dLZ&_nc_oc=AdrTgdFNjUI2wQ02lKGwZTkDcyk2l2-ufsnL6mwdUVlFraVLZ_EbqTVpg5CuM5JGmhw&_nc_pt=5&_nc_zt=23&_nc_ht=scontent.fnbo15-1.fna&_nc_gid=cRsBg4yagl8MyekAWU0-eA&_nc_ss=7a3a8&oh=00_Af3fm2KIA-gHxTXijVtJ7LgFTSn0Zw2691CKsmR4yJ4noQ&oe=69D38722" alt="">
+        </div>
+
+        <div class="news-body">
+
+          <div class="meta">
+            <span class="category">Outreach</span>
+            <span class="date">Jan 18, 2026</span>
+          </div>
+
+          <h3>Sanitary Pad Distribution Program</h3>
+
+          <p>Supporting dignity, confidence, and health for girls in rural areas.</p>
+
+        </div>
+
+      </article>
+
+      <!-- CARD 3 -->
+      <article class="news-card">
+
+        <div class="news-image">
+          <img src="https://scontent.fnbo15-1.fna.fbcdn.net/v/t39.30808-6/618638008_925057433186369_6667268482734881095_n.jpg?_nc_cat=106&ccb=1-7&_nc_sid=13d280&_nc_eui2=AeHJFf4Vn4xhgbNMg1MGLehADe7luj-Lr2wN7uW6P4uvbKvZ-k8KPDd5e9akcxmB-hozQtJ9o9UBHIx0bPftHXoB&_nc_ohc=ksyJJRs-47AQ7kNvwFrKFF2&_nc_oc=AdpHTuFJSArX9lMYd4WZ1ThhRFL23S22dRXJF9DEoAEZegEjTpsYw5DpSpBsszH-nIw&_nc_pt=5&_nc_zt=23&_nc_ht=scontent.fnbo15-1.fna&_nc_gid=KHQOQaL7RmEyVc5BCKCKgg&_nc_ss=7a3a8&oh=00_Af1KyyYsUDZHfrQABxzoLf0bSJkXX3wKK-R7VT91vxemfg&oe=69D35EDE" alt="">
+        </div>
+
+        <div class="news-body">
+
+          <div class="meta">
+            <span class="category">Education</span>
+            <span class="date">Dec 5, 2025</span>
+          </div>
+
+          <h3>Mentorship Program Launch</h3>
+
+          <p>Connecting girls with mentors for growth, guidance, and opportunity.</p>
+
+        </div>
+
+      </article>
+
+    </div>
+
+  </div>
+
+  <!-- ================= SIDEBAR ================= -->
+  <aside class="news-sidebar">
+
+    <!-- SEARCH -->
+    <div class="sidebar-block">
+      <h4>Search</h4>
+      <input type="text" placeholder="Search articles...">
+    </div>
+
+    <!-- CATEGORIES -->
+    <div class="sidebar-block">
+      <h4>Categories</h4>
+      <ul>
+        <li>Education</li>
+        <li>Outreach</li>
+        <li>Events</li>
+        <li>Impact Stories</li>
+      </ul>
+    </div>
+
+    <!-- RECENT POSTS -->
+    <div class="sidebar-block">
+      <h4>Recent Posts</h4>
+
+      <div class="recent-post">
+        <img src="image1.jpg">
+        <div>
+          <span class="recent-title">Empowering Girls Through Education</span>
+          <span class="recent-date">Mar 12, 2026</span>
+        </div>
+      </div>
+
+      <div class="recent-post">
+        <img src="image2.jpg">
+        <div>
+          <span class="recent-title">Community Outreach Success</span>
+          <span class="recent-date">Feb 28, 2026</span>
+        </div>
+      </div>
+
+    </div>
+
+  </aside>
+
+</div>
+<style>
+  /* ================= CONTAINER ================= */
+.news-container {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 50px;
+  padding: 100px 8%;
+}
+
+/* ================= FEATURED ================= */
+.featured-news {
+  margin-bottom: 60px;
+}
+
+.featured-image img {
+  width: 100%;
+  height: auto; /* ✅ NO CROPPING */
+  display: block;
+  border-radius: 16px;
+  object-fit: contain; /* ensures full image is visible */
+  background: #f9f9f9;
+}
+
+.featured-text {
+  margin-top: 20px;
+}
+
+.featured-text h2 {
+  font-size: 2.2rem;
+  font-weight: 900;
+  color: #880e4f;
+}
+
+/* ================= GRID ================= */
+.news-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 30px;
+}
+
+/* CARD */
+.news-card {
+  background: #fff;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.06);
+  transition: 0.3s;
+}
+
+.news-card:hover {
+  transform: translateY(-6px);
+}
+
+/* IMAGE (NO CROPPING) */
+.news-image {
+  background: #f9f9f9;
+}
+
+.news-image img {
+  width: 100%;
+  height: auto; /* ✅ NO CROPPING */
+  display: block;
+  object-fit: contain;
+}
+
+/* TEXT */
+.news-body {
+  padding: 18px;
+}
+
+.news-body h3 {
+  margin-top: 10px;
+  font-size: 1.2rem;
+  font-weight: 700;
+}
+
+/* ================= META (CATEGORY + DATE) ================= */
+.meta {
+  display: flex;
+  justify-content: space-between;
+  font-size: 12px;
+  margin-bottom: 10px;
+}
+
+.category {
+  color: #ff2e7a;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.date {
+  color: #888;
+}
+
+/* ================= SIDEBAR ================= */
+.news-sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.sidebar-block {
+  background: #fff5f8;
+  padding: 20px;
+  border-radius: 12px;
+}
+
+.sidebar-block h4 {
+  margin-bottom: 15px;
+  color: #880e4f;
+}
+
+/* RECENT POSTS */
+.recent-post {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 12px;
+}
+
+.recent-post img {
+  width: 60px;
+  height: 60px;
+  object-fit: contain; /* ✅ NO CROPPING */
+  background: #f9f9f9;
+  border-radius: 8px;
+}
+
+.recent-title {
+  display: block;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.recent-date {
+  font-size: 12px;
+  color: #999;
+}
+
+/* ================= RESPONSIVE ================= */
+@media (max-width: 900px) {
+  .news-container {
+    grid-template-columns: 1fr;
+  }
+
+  .news-grid {
+    grid-template-columns: 1fr;
+  }
+}
+</style>
+
+<style>
+
+/* ================= HERO ================= */
+.news-hero {
+  background: linear-gradient(135deg, #ff2e7a, #ff8fb3);
+  color: white;
+  padding: 100px 8%;
+  text-align: center;
+}
+
+.news-hero h1 {
+  font-size: 3.5rem;
+  font-weight: 900;
+}
+
+.news-hero p {
+  margin-top: 12px;
+  opacity: 0.9;
+}
+
+/* ================= LAYOUT ================= */
+.news-container {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 50px;
+  padding: 100px 8%;
+}
+
+/* ================= FEATURED ================= */
+.featured-news {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 30px;
+  margin-bottom: 60px;
+}
+
+.featured-news img {
+  width: 100%;
+  border-radius: 16px;
+}
+
+.featured-text h2 {
+  font-size: 2rem;
+  font-weight: 800;
+}
+
+.featured-text p {
+  margin: 15px 0;
+  color: #555;
+}
+
+.read-more {
+  color: #ff2e7a;
+  font-weight: 600;
+}
+
+/* ================= GRID ================= */
+.news-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 25px;
+}
+
+.news-card {
+  background: #fff;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+  transition: 0.3s;
+}
+
+.news-card:hover {
+  transform: translateY(-6px);
+}
+
+.news-card img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+}
+
+.news-body {
+  padding: 20px;
+}
+
+.news-body h3 {
+  font-size: 1.2rem;
+  margin: 10px 0;
+}
+
+/* ================= SIDEBAR ================= */
+.news-sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.sidebar-block {
+  background: #fff5f8;
+  padding: 20px;
+  border-radius: 12px;
+}
+
+.sidebar-block h4 {
+  margin-bottom: 15px;
+  color: #880e4f;
+}
+
+.sidebar-block input {
+  width: 100%;
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+}
+
+.sidebar-block ul {
+  list-style: none;
+  padding: 0;
+}
+
+.sidebar-block li {
+  padding: 8px 0;
+  border-bottom: 1px solid #eee;
+}
+
+/* RECENT */
+.recent-post {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.recent-post img {
+  width: 50px;
+  height: 50px;
+  border-radius: 8px;
+}
+
+/* CATEGORY */
+.category {
+  font-size: 12px;
+  color: #ff2e7a;
+  font-weight: 700;
+}
+
+/* ================= RESPONSIVE ================= */
+@media (max-width: 900px) {
+
+  .news-container {
+    grid-template-columns: 1fr;
+  }
+
+  .featured-news {
+    grid-template-columns: 1fr;
+  }
+
+  .news-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+</style>
+<!-- ================= FOOTER ================= -->
+<footer class="footer">
+
+  <div class="footer-container">
+
+    <!-- BRAND -->
+    <div class="footer-box">
+      <h3>BintiCare Foundation</h3>
+      <p>
+        Empowering girls through education, dignity,
+        mentorship, and opportunity.
+      </p>
+    </div>
+
+    <!-- QUICK LINKS -->
+    <div class="footer-box">
+      <h4>Quick Links</h4>
+      <a href="#about">About</a>
+      <a href="#programs">Programs</a>
+      <a href="#impact">Impact</a>
+      <a href="#contact">Contact</a>
+    </div>
+
+    <!-- CONTACT FORM -->
+    <div class="footer-box contact-form">
+      <h4>Contact Us</h4>
+
+      <form id="contact-form">
+
+        <input type="text" name="name" placeholder="Full Name" required>
+
+        <input type="email" name="email" placeholder="Email Address" required>
+
+        <input type="tel" name="phone" placeholder="Phone Number">
+
+        <select name="interest" required>
+          <option value="">I am interested in...</option>
+          <option value="Volunteering">Volunteering</option>
+          <option value="Donations">Donations</option>
+          <option value="Partnership">Partnership</option>
+          <option value="General Inquiry">General Inquiry</option>
+        </select>
+
+        <input type="text" name="subject" placeholder="Subject">
+
+        <textarea name="message" placeholder="Your message..." rows="4" required></textarea>
+
+        <button type="submit">Send Message</button>
+
+        <p class="form-status" id="form-status"></p>
+
+      </form>
+    </div>
+
+  </div>
+
+  <!-- SOCIAL -->
+  <div class="socials">
+    <a href="#">Facebook</a>
+    <a href="#">Instagram</a>
+    <a href="#">X</a>
+    <a href="#">YouTube</a>
+  </div>
+
+  <!-- BOTTOM -->
+  <div class="footer-bottom">
+    <p>© 2026 BintiCare Foundation. All Rights Reserved.</p>
+    <p>Developed & Managed by <strong>Baba Nile Digital Africa</strong></p>
+  </div>
+
+</footer>
+
+<!-- ================= EMAILJS ================= -->
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+
+<script>
+  // 🔑 Initialize EmailJS
+  emailjs.init("YOUR_PUBLIC_KEY");
+
+  const form = document.getElementById("contact-form");
+  const statusText = document.getElementById("form-status");
+
+  form.addEventListener("submit", function(e) {
+    e.preventDefault();
+
+    statusText.textContent = "Sending...";
+
+    emailjs.sendForm(
+      "YOUR_SERVICE_ID",
+      "YOUR_TEMPLATE_ID",
+      this
+    )
+    .then(() => {
+      statusText.textContent = "Message sent successfully!";
+      statusText.style.color = "#00e676";
+      form.reset();
+    })
+    .catch((error) => {
+      statusText.textContent = "Failed to send. Try again.";
+      statusText.style.color = "#ff5252";
+      console.error(error);
+    });
+  });
+</script>
+
+<!-- ================= STYLES ================= -->
+<style>
+
+/* ================= FOOTER ================= */
+.footer {
+  background: #0f0f10;
+  color: #fff;
+  padding: 90px 8% 30px;
+  font-family: system-ui, sans-serif;
+}
+
+/* ================= GRID ================= */
+.footer-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1.3fr;
+  gap: 50px;
+}
+
+/* ================= TEXT ================= */
+.footer-box h3 {
+  font-size: 22px;
+  margin-bottom: 12px;
+}
+
+.footer-box h4 {
+  font-size: 18px;
+  margin-bottom: 12px;
+}
+
+.footer-box p {
+  color: #bbb;
+  line-height: 1.7;
+}
+
+/* ================= LINKS ================= */
+.footer-box a {
+  display: block;
+  color: #bbb;
+  text-decoration: none;
+  margin-bottom: 8px;
+  transition: 0.3s;
+}
+
+.footer-box a:hover {
+  color: #ff2e7a;
+}
+
+/* ================= FORM ================= */
+.contact-form form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.contact-form input,
+.contact-form select,
+.contact-form textarea {
+  padding: 12px 14px;
+  border: none;
+  border-radius: 8px;
+  background: #1a1a1a;
+  color: #fff;
+  font-size: 14px;
+  outline: none;
+}
+
+.contact-form textarea {
+  resize: none;
+}
+
+.contact-form select {
+  cursor: pointer;
+}
+
+.contact-form input::placeholder,
+.contact-form textarea::placeholder {
+  color: #777;
+}
+
+/* BUTTON */
+.contact-form button {
+  padding: 12px;
+  background: linear-gradient(135deg, #ff2e7a, #ff80ab);
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.contact-form button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px rgba(255, 46, 122, 0.3);
+}
+
+/* STATUS TEXT */
+.form-status {
+  font-size: 13px;
+  margin-top: 5px;
+  color: #aaa;
+}
+
+/* ================= SOCIAL ================= */
+.socials {
+  margin-top: 40px;
+  text-align: center;
+}
+
+.socials a {
+  margin: 0 10px;
+  color: #bbb;
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+.socials a:hover {
+  color: #ff2e7a;
+}
+
+/* ================= BOTTOM ================= */
+.footer-bottom {
+  margin-top: 40px;
+  padding-top: 20px;
+  border-top: 1px solid #222;
+  text-align: center;
+  color: #888;
+  font-size: 14px;
+}
+
+/* ================= RESPONSIVE ================= */
+@media (max-width: 900px) {
+  .footer-container {
+    grid-template-columns: 1fr;
+  }
+}
+
+</style>
+</body>
+</html>

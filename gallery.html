@@ -1,0 +1,235 @@
+
+<section class="gallery" id="gallery">
+
+  <div class="gallery__header">
+    <span class="tag">Our Impact</span>
+    <h2>Gallery of Change</h2>
+    <p>Moments from our events, outreach, and community impact programs.</p>
+  </div>
+
+  <!-- FILTERS -->
+  <div class="gallery__filters">
+    <button class="filter active" data-filter="all">All</button>
+    <button class="filter" data-filter="events">Events</button>
+    <button class="filter" data-filter="outreach">Outreach</button>
+  </div>
+
+  <!-- MASONRY GRID -->
+  <div class="masonry">
+
+    <div class="masonry__item events">
+      <img src="image 1.jpg" alt="">
+    </div>
+
+    <div class="masonry__item outreach">
+      <img src="image 2.jpg" alt="">
+    </div>
+
+    <div class="masonry__item events">
+      <img src="image 3.jpg" alt="">
+    </div>
+
+    <div class="masonry__item outreach">
+      <img src="image 4.jpg" alt="">
+    </div>
+
+    <div class="masonry__item events">
+      <img src="image5.jpg" alt="">
+    </div>
+
+    <div class="masonry__item outreach">
+      <img src="image6.jpg" alt="">
+    </div>
+
+  </div>
+
+</section>
+
+<!-- MODAL -->
+<div class="modal" id="modal">
+  <span class="modal__close" id="closeModal">&times;</span>
+  <img id="modalImage" />
+</div>
+<style>
+  .gallery {
+  padding: 120px 8%;
+  background: linear-gradient(180deg, #fff5f8, #ffffff);
+}
+
+/* HEADER */
+.gallery__header {
+  text-align: center;
+  max-width: 700px;
+  margin: auto;
+  margin-bottom: 50px;
+}
+
+.tag {
+  background: #ec4899;
+  color: #fff;
+  padding: 6px 16px;
+  border-radius: 20px;
+  font-size: 12px;
+}
+
+.gallery__header h2 {
+  font-size: 2.8rem;
+  font-weight: 800;
+  margin: 15px 0;
+}
+
+/* FILTERS */
+.gallery__filters {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.filter {
+  padding: 10px 20px;
+  border-radius: 25px;
+  border: none;
+  background: #f3f3f3;
+  margin: 5px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.filter.active,
+.filter:hover {
+  background: #ec4899;
+  color: white;
+}
+
+/* MASONRY GRID */
+.masonry {
+  column-count: 3;
+  column-gap: 20px;
+}
+
+@media (max-width: 1024px) {
+  .masonry {
+    column-count: 2;
+  }
+}
+
+@media (max-width: 600px) {
+  .masonry {
+    column-count: 1;
+  }
+}
+
+/* ITEMS */
+.masonry__item {
+  break-inside: avoid;
+  margin-bottom: 20px;
+  border-radius: 16px;
+  overflow: hidden;
+  position: relative;
+  cursor: pointer;
+}
+
+/* IMAGES */
+.masonry__item img {
+  width: 100%;
+  display: block;
+  transition: transform 0.5s ease;
+}
+
+/* HOVER */
+.masonry__item:hover img {
+  transform: scale(1.08);
+}
+
+/* OVERLAY */
+.masonry__item::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(0,0,0,0.3), transparent);
+  opacity: 0;
+  transition: 0.3s;
+}
+
+.masonry__item:hover::after {
+  opacity: 1;
+}
+
+/* FILTER HIDE */
+.hide {
+  display: none;
+}
+
+/* MODAL */
+.modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.92);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+.modal img {
+  max-width: 90%;
+  max-height: 85%;
+  border-radius: 12px;
+}
+
+.modal__close {
+  position: absolute;
+  top: 25px;
+  right: 40px;
+  font-size: 40px;
+  color: white;
+  cursor: pointer;
+}
+</style>
+<script>
+  const filters = document.querySelectorAll(".filter");
+const items = document.querySelectorAll(".masonry__item");
+
+// FILTER
+filters.forEach(btn => {
+  btn.addEventListener("click", () => {
+
+    filters.forEach(b => b.classList.remove("active"));
+    btn.classList.add("active");
+
+    const filter = btn.dataset.filter;
+
+    items.forEach(item => {
+      if (filter === "all" || item.classList.contains(filter)) {
+        item.classList.remove("hide");
+      } else {
+        item.classList.add("hide");
+      }
+    });
+
+  });
+});
+
+
+// MODAL
+const modal = document.getElementById("modal");
+const modalImg = document.getElementById("modalImage");
+const closeModal = document.getElementById("closeModal");
+
+items.forEach(item => {
+  item.addEventListener("click", () => {
+    const img = item.querySelector("img");
+    modal.style.display = "flex";
+    modalImg.src = img.src;
+  });
+});
+
+closeModal.addEventListener("click", () => {
+  modal.style.display = "none";
+});
+
+modal.addEventListener("click", (e) => {
+  if (e.target === modal) {
+    modal.style.display = "none";
+  }
+});
+</script>

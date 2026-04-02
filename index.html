@@ -1,0 +1,1768 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Binticare Foundation</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+<style>
+:root{
+--primary:#0d47a1;
+--accent:#00c853;
+--dark:#0a192f;
+--light:#f4f7fb;
+--text:#333;
+}
+
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif}
+body{background:var(--light);color:var(--text);line-height:1.6}
+
+ 
+
+section{padding:100px 50px}
+.container{max-width:1200px;margin:auto}
+
+ 
+ 
+ 
+
+ 
+/* DONATE */
+.donate-box{background:#fff;padding:25px;border-radius:12px;text-align:center}
+.progress{height:8px;background:#eee;border-radius:5px;margin:10px 0}
+.progress div{height:100%;background:var(--accent);width:60%}
+
+.gallery{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:10px}
+.gallery img{width:100%;border-radius:10px}
+
+.modal{position:fixed;top:0;left:0;width:100%;height:100%;display:none;background:rgba(0,0,0,.7);justify-content:center;align-items:center}
+.modal-content{background:#fff;padding:30px;border-radius:10px;width:90%;max-width:400px}
+input,select{width:100%;padding:10px;margin:10px 0}
+
+footer{background:var(--dark);color:#fff;text-align:center;padding:20px}
+
+@media(max-width:768px){
+nav{display:none;flex-direction:column;position:absolute;top:70px;left:0;width:100%;background:var(--dark);padding:20px}
+nav.active{display:flex}
+.menu-toggle{display:block}
+.hero h1{font-size:2.2rem}
+}
+</style>
+</head>
+
+<body>
+<header class="header">
+
+  <div class="nav-container">
+
+    <!-- LOGO -->
+    <div class="logo">
+      <img src="binti logo.jpg" alt="BintiCare Logo">
+    </div>
+
+    <!-- MOBILE TOGGLE -->
+    <button class="menu-toggle" onclick="toggleMenu()">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+
+    <!-- NAV -->
+    <nav id="nav" class="nav">
+
+      <a href="#" class="active">Home</a>
+
+      <!-- DROPDOWN 1 -->
+      <div class="dropdown">
+        <a href="#">Who We Are</a>
+        <div class="dropdown-menu">
+          <a href="About.html">About Us</a>
+          <a href="team.html">Our Team</a>
+          <a href="#">Our Story</a>
+        </div>
+      </div>
+
+      <!-- DROPDOWN 2 -->
+      <div class="dropdown">
+        <a href="#">What We Do</a>
+        <div class="dropdown-menu">
+          <a href="#education">Education</a>
+          <a href="#training">Uniform A Child</a>
+          <a href="#impact">Impact</a>
+        </div>
+      </div>
+
+      <a href="news.html">News</a>
+
+      <!-- CTA -->
+      <a href="#donate" class="cta-btn">Support Us</a>
+
+    </nav>
+
+  </div>
+
+</header>
+
+<style>
+
+/* ================= HEADER ================= */
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+
+  background: rgba(30, 0, 15, 0.65);
+  backdrop-filter: blur(20px);
+
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+
+  transition: all 0.35s ease;
+}
+
+/* ================= SHRINK ON SCROLL ================= */
+.header.shrink {
+  padding: 6px 0;
+  background: rgba(20, 0, 10, 0.95);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
+}
+
+/* ================= CONTAINER ================= */
+.nav-container {
+  max-width: 1200px;
+  margin: auto;
+  padding: 14px 24px;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* ================= LOGO ================= */
+.logo img {
+  height: 50px;
+  transition: 0.3s ease;
+}
+
+.header.shrink .logo img {
+  height: 40px;
+}
+
+.logo img:hover {
+  transform: scale(1.05);
+}
+
+/* ================= NAV ================= */
+.nav {
+  display: flex;
+  align-items: center;
+  gap: 26px;
+}
+
+/* ================= LINKS ================= */
+.nav a {
+  position: relative;
+  text-decoration: none;
+  color: #ffd6e7;
+  font-size: 15px;
+  font-weight: 500;
+  transition: 0.3s ease;
+}
+
+/* HOVER */
+.nav a:hover {
+  color: #fff;
+  text-shadow: 0 0 8px rgba(255, 105, 180, 0.5);
+}
+
+/* ACTIVE */
+.nav a.active {
+  color: #fff;
+  font-weight: 700;
+}
+
+/* ================= CTA ================= */
+.cta-btn {
+  padding: 10px 22px;
+  border-radius: 25px;
+
+  background: linear-gradient(90deg, #ff2e7a, #ff5a9e);
+  color: #fff !important;
+
+  font-weight: 600;
+  transition: 0.3s ease;
+}
+
+.cta-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(255, 46, 122, 0.4);
+}
+
+/* ================= DROPDOWN ================= */
+.dropdown {
+  position: relative;
+}
+
+.dropdown-menu {
+  position: absolute;
+  top: 120%;
+  left: 0;
+
+  min-width: 180px;
+  padding: 10px 0;
+
+  background: rgba(20, 0, 10, 0.95);
+  backdrop-filter: blur(20px);
+
+  border-radius: 10px;
+
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(10px);
+
+  transition: 0.3s ease;
+}
+
+/* SHOW */
+.dropdown:hover .dropdown-menu {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+/* DROPDOWN LINKS */
+.dropdown-menu a {
+  display: block;
+  padding: 10px 18px;
+  font-size: 14px;
+  color: #ffd6e7;
+}
+
+.dropdown-menu a:hover {
+  background: rgba(255, 105, 180, 0.15);
+  color: #fff;
+}
+
+/* ================= HAMBURGER ================= */
+.menu-toggle {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.menu-toggle span {
+  width: 26px;
+  height: 3px;
+  background: #ffd6e7;
+  border-radius: 4px;
+}
+
+/* ================= MOBILE ================= */
+@media (max-width: 768px) {
+
+  .menu-toggle {
+    display: flex;
+  }
+
+  .nav {
+    position: absolute;
+    top: 70px;
+    left: 0;
+    width: 100%;
+
+    background: rgba(20, 0, 10, 0.98);
+
+    flex-direction: column;
+    align-items: center;
+
+    max-height: 0;
+    overflow: hidden;
+
+    transition: 0.4s ease;
+  }
+
+  .nav.active {
+    max-height: 500px;
+    padding: 20px 0;
+  }
+
+  .nav a {
+    padding: 14px;
+    width: 100%;
+    text-align: center;
+  }
+
+  .dropdown-menu {
+    position: static;
+    opacity: 1;
+    visibility: visible;
+    transform: none;
+    background: transparent;
+  }
+}
+
+</style>
+
+<script>
+
+/* MOBILE MENU */
+function toggleMenu() {
+  document.getElementById("nav").classList.toggle("active");
+}
+
+/* SCROLL SHRINK EFFECT */
+window.addEventListener("scroll", () => {
+  const header = document.querySelector(".header");
+
+  if (window.scrollY > 50) {
+    header.classList.add("shrink");
+  } else {
+    header.classList.remove("shrink");
+  }
+});
+
+</script>
+
+<style>
+/* ================= HERO (LIGHT NGO PRO) ================= */
+.hero {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+
+  background: linear-gradient(180deg, #fff0f6, #ffffff);
+  color: #222;
+}
+
+/* ================= BACKGROUND ================= */
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+.hero-bg img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+
+  opacity: 0.25; /* soft + premium */
+  filter: saturate(105%);
+}
+
+/* ================= OVERLAY ================= */
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+
+  background:
+    radial-gradient(circle at 20% 40%, rgba(255,46,122,0.15), transparent 60%),
+    radial-gradient(circle at 80% 60%, rgba(255,105,180,0.12), transparent 60%);
+}
+
+/* ================= CONTAINER ================= */
+.hero-container {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  max-width: 1200px;
+  margin: auto;
+  padding: 0 8%;
+}
+
+/* ================= CONTENT ================= */
+.hero-content {
+  max-width: 620px;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+/* ================= TAG ================= */
+.hero-tag {
+  font-size: 12px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: #d81b60;
+  font-weight: 700;
+}
+
+/* ================= TITLE ================= */
+.hero h1 {
+  font-size: clamp(2.8rem, 5vw, 4.3rem);
+  font-weight: 900;
+  line-height: 1.1;
+  color: #880e4f;
+}
+
+.hero h1 span {
+  color: #ff2e7a;
+}
+
+/* ================= TEXT ================= */
+.hero p {
+  font-size: 1.1rem;
+  line-height: 1.85;
+  color: black;
+  max-width: 520px;
+}
+
+/* ================= BUTTONS ================= */
+.hero-buttons {
+  display: flex;
+  gap: 16px;
+  margin-top: 12px;
+}
+
+.btn {
+  padding: 14px 30px;
+  font-size: 14px;
+  font-weight: 700;
+  text-decoration: none;
+  border-radius: 50px;
+  transition: all 0.3s ease;
+}
+
+/* PRIMARY */
+.btn.primary {
+  background: linear-gradient(90deg, #ff2e7a, #ff8fb3);
+  color: #fff;
+  box-shadow: 0 18px 40px rgba(255, 46, 122, 0.25);
+}
+
+.btn.primary:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 25px 60px rgba(255, 46, 122, 0.35);
+}
+
+/* SECONDARY */
+.btn.secondary {
+  border: 2px solid #ff2e7a;
+  color: #ff2e7a;
+}
+
+.btn.secondary:hover {
+  background: #ff2e7a;
+  color: #fff;
+  transform: translateY(-3px);
+}
+
+/* ================= NOTE ================= */
+.hero-note {
+  font-size: 13px;
+  color: var(--black);
+  margin-top: 8px;
+}
+
+/* ================= STATS ================= */
+.hero-stats {
+  display: flex;
+  gap: 40px;
+  margin-top: 40px;
+  flex-wrap: wrap;
+}
+
+.stat h3 {
+  font-size: 30px;
+  font-weight: 900;
+  color: #ff2e7a;
+}
+
+.stat span {
+  font-size: 13px;
+  color: #666;
+}
+
+/* ================= SOFT GLOW ================= */
+.hero::before {
+  content: "";
+  position: absolute;
+  width: 450px;
+  height: 450px;
+  background: radial-gradient(circle, rgba(255,46,122,0.15), transparent 70%);
+  top: -120px;
+  left: -120px;
+  filter: blur(80px);
+}
+
+/* ================= RESPONSIVE ================= */
+@media (max-width: 768px) {
+
+  .hero {
+    text-align: center;
+  }
+
+  .hero-content {
+    margin: auto;
+  }
+
+  .hero-buttons {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .hero-stats {
+    flex-direction: column;
+    gap: 20px;
+  }
+}
+</style>
+
+
+<section class="hero">
+
+  <!-- BACKGROUND -->
+  <div class="hero-bg">
+    <img src="https://scontent.fnbo19-1.fna.fbcdn.net/v/t39.30808-6/486027893_693915976300517_4996054068734292054_n.jpg?_nc_cat=101&ccb=1-7&_nc_sid=7b2446&_nc_eui2=AeGqH2ZxXNf45K33y8ZsPk139-iP7Gj0aZn36I_saPRpmTs_kXkEFgMoRpkVqf5W1y2WcJ6pJtBXUMBCXbhnu3Gw&_nc_ohc=qhrcI6tcPfgQ7kNvwHUSpvt&_nc_oc=AdqkmnX7GQYqS6LVgI1v0pnsYIo9_jkCpzXQ_P7Mil-kmSwE4Ebm0_SL1KZiYO7f6JhPGnCNdk6osXfPPmSafUQj&_nc_zt=23&_nc_ht=scontent.fnbo19-1.fna&_nc_gid=wCAuPSSf2dhIZazmTrNvHQ&_nc_ss=7a3a8&oh=00_Af1tobOcCQUyj6iscLBGBes8TpP820huEcOYEADsyURRbw&oe=69D300BE" alt="Girls Empowerment">
+  </div>
+
+  <!-- OVERLAY -->
+  <div class="hero-overlay"></div>
+
+  <!-- CONTENT -->
+  <div class="hero-container">
+
+    <div class="hero-content">
+
+      <span class="hero-tag">Empowering Girls. Transforming Futures.</span>
+
+      <h1>
+        Empowering Girls<br>
+        <span>Across Kenya</span>
+      </h1>
+
+      <p>
+        BintiCare Foundation works to advance education, dignity, and opportunity
+        for girls through mentorship, community programs, and access to essential resources.
+      </p>
+
+      <div class="hero-buttons">
+        <a href="#donate" class="btn primary">Donate Now</a>
+        <a href="#" class="btn secondary">Get Involved</a>
+      </div>
+
+      <div class="hero-note">
+        <strong>100% of your support goes directly to empowering girls </strong>💗
+      </div>
+
+    </div>
+
+  </div>
+
+   
+
+</section>
+
+<!-- ================= ABOUT SECTION ================= -->
+<section id="about" class="about-section">
+
+  <div class="about-container">
+
+    <!-- IMAGE -->
+    <div class="about-media">
+      <div class="media-frame">
+        <img src="https://scontent.fnbo19-1.fna.fbcdn.net/v/t39.30808-6/513829479_765552725803508_3027457019518029001_n.jpg?_nc_cat=100&ccb=1-7&_nc_sid=13d280&_nc_eui2=AeGU-BDdfd7fZXnFlS5Ay-rGUw8icm6Q7tZTDyJybpDu1kW9kNlMPfmsS-idGaf13cK7Ipq0KwpSDfNBFuFzDZN0&_nc_ohc=Q_mtBx2g-OkQ7kNvwEpXnOe&_nc_oc=AdozTkLbEEPtBwmj2pvC0GjSUjzhI2MZaUONQFp7d3BVjIBKUcD4GaD2SPWI17-vpmav0FKORMtgdNJWmFcySntE&_nc_zt=23&_nc_ht=scontent.
+        fnbo19-1.fna&_nc_gid=a1h2oEQth85tb_-gGRLepQ&_nc_ss=7a3a8&oh=00_Af1GTbiLUA196-9sjygf_k9XePk2DCxUvkzr3QeUJ0QHNQ&oe=69D3186A" alt="BintiCare Impact">
+      </div>
+    </div>
+
+    <!-- CONTENT -->
+    <div class="about-content">
+
+      <span class="section-tag">Who We Are</span>
+
+      <h2 class="section-title">
+        Creating Dignity, Purpose & Belonging
+      </h2>
+
+      <p class="section-text">
+        <strong style="color: var(--pink);">BintiCare Foundation</strong> is a non-profit organization dedicated to empowering girls and young women through education, dignity, and opportunity. We believe that when girls are supported, entire communities thrive.
+      </p>
+
+      <p class="section-text">
+        Our programs focus on education, health, and mentorship—equipping girls with the tools they need to build confident, independent, and meaningful lives.
+      </p>
+
+      <!-- CTA BUTTON -->
+      <a href="about.html" class="about-btn">
+        Learn More About Our Work →
+      </a>
+
+    </div>
+
+  </div>
+
+</section>
+<style>
+  /* ================= ABOUT SECTION ================= */
+.about-section {
+  padding: 120px 8%;
+  background: linear-gradient(180deg, #fff 60%, #fff4f8 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+/* SOFT PINK BLOBS */
+.about-section::before,
+.about-section::after {
+  content: "";
+  position: absolute;
+  border-radius: 50%;
+  background: #ff2d7a;
+  opacity: 0.05;
+  filter: blur(90px);
+}
+
+.about-section::before {
+  width: 320px;
+  height: 320px;
+  top: -100px;
+  left: -120px;
+}
+
+.about-section::after {
+  width: 380px;
+  height: 380px;
+  bottom: -120px;
+  right: -140px;
+}
+
+/* ================= LAYOUT ================= */
+.about-container {
+  max-width: 1200px;
+  margin: auto;
+
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+
+  align-items: center;
+  position: relative;
+  z-index: 1;
+}
+
+/* ================= IMAGE ================= */
+.media-frame {
+  border-radius: 18px;
+  overflow: hidden;
+  box-shadow: 0 25px 70px rgba(0,0,0,0.1);
+}
+
+.media-frame img {
+  width: 100%;
+  height: 420px;
+  object-fit: cover;
+  transition: transform 0.6s ease;
+}
+
+.media-frame:hover img {
+  transform: scale(1.06);
+}
+
+/* ================= TEXT ================= */
+.section-tag {
+  font-size: 12px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: #ff2d7a;
+  font-weight: 700;
+}
+
+.section-title {
+  font-size: 42px;
+  font-weight: 900;
+  color: #111;
+  margin: 18px 0 22px;
+  line-height: 1.2;
+}
+
+.section-text {
+  font-size: 16px;
+  color: #555;
+  line-height: 1.8;
+  margin-bottom: 16px;
+  max-width: 95%;
+}
+
+/* ================= BUTTON ================= */
+.about-btn {
+  display: inline-block;
+  margin-top: 25px;
+
+  padding: 12px 26px;
+  border-radius: 30px;
+
+  background: #ff2d7a;
+  color: #fff;
+
+  font-size: 14px;
+  font-weight: 600;
+  text-decoration: none;
+
+  transition: all 0.3s ease;
+  box-shadow: 0 10px 25px rgba(255, 45, 122, 0.25);
+}
+
+/* HOVER EFFECT */
+.about-btn:hover {
+  background: #111;
+  transform: translateY(-3px);
+  box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+}
+
+/* ================= RESPONSIVE ================= */
+@media (max-width: 900px) {
+  .about-container {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .section-title {
+    font-size: 30px;
+  }
+
+  .media-frame img {
+    height: 320px;
+  }
+}
+</style>
+
+<!-- ================= PROGRAMS SECTION ================= -->
+<section id="programs" class="programs">
+
+  <div class="container">
+
+    <!-- HEADER -->
+    <div class="section-header">
+      <span class="section-tag">Our Work</span>
+
+      <h2>
+        Programs That<br>
+        Create Real Impact
+      </h2>
+
+      <p>
+        We design and deliver programs that empower girls and young women through
+        education, mentorship, health awareness, and life skills development.
+      </p>
+    </div>
+
+    <!-- GRID -->
+    <div class="programs-grid">
+
+      <div class="program-card">
+        <img src="https://scontent.fnbo19-2.fna.fbcdn.net/v/t39.30808-6/495372080_730865709272210_3720401530915836668_n.jpg?_nc_cat=103&ccb=1-7&_nc_sid=13d280&_nc_eui2=AeHFEp-ieAzTI8fiOwWQ1DzxFidYYeo4YR8WJ1hh6jhhH2_7Ssga0EuySPVJ7rFBXRYR5Nglj8xNkvGQMjsWU6tj&_nc_ohc=4T-GsfMazCsQ7kNvwH8sTgi&_nc_oc=AdosMce1ipsqp9LsftPp570LoJejUUvElPG6Vk-lmyKSMELkCPF4X3a7GTo8hl0owW4qTONJue7idAVN7BqxkPFd&_nc_zt=23&_nc_ht=scontent.fnbo19-2.fna&_nc_gid=etr1w4J5mId4CsOakMiySQ&_nc_ss=7a3a8&oh=00_Af1-LmXwvI7HvjXZdoadYbLpeag66zdkwA3Xyqv2vlCgpg&oe=69D32398" alt="">
+        <div class="program-content">
+          <h3>Girls Education</h3>
+          <p>We support access to quality education and help girls stay in school.</p>
+          <a href="banner.html" class="program-btn">Learn More</a>
+        </div>
+      </div>
+
+      <div class="program-card">
+        <img src="https://scontent.fnbo19-1.fna.fbcdn.net/v/t39.30808-6/574251395_864189892606457_4384274898556578920_n.jpg?_nc_cat=108&ccb=1-7&_nc_sid=13d280&_nc_ohc=5V-SmtxxCYQQ7kNvwHMMIGB&_nc_oc=AdpkMSwhS9_Sp043YG8ennnHxJq6FjTt_HNUL5_t6PzpM91oADQJdclQuP30_d4wZUPl4G7kJoDEYH7YvP5c7ym3&_nc_zt=23&_nc_ht=scontent.fnbo19-1.fna&_nc_gid=ODvm15dxcJpdIdWQeUYIzg&_nc_ss=7a3a8&oh=00_Af0qBZaz2G38mgtkBj2_8GBD2R5YaHaw8d9-GV0k-Ag-Cg&oe=69D311B3" alt="">
+        <div class="program-content">
+          <h3>Pad Making Training</h3>
+          <p>Equipping young women with practical skills for independence and employment.</p>
+          <a href="#" class="program-btn">Learn More</a>
+        </div>
+      </div>
+
+      <div class="program-card">
+        <img src="image 3.jpg" alt="">
+        <div class="program-content">
+          <h3>Health & Wellbeing</h3>
+          <p>Promoting physical and mental health awareness and support systems.</p>
+          <a href="#" class="program-btn">Learn More</a>
+        </div>
+      </div>
+
+      <div class="program-card">
+        <img src="image 4.jpg" alt="">
+        <div class="program-content">
+          <h3>Nutrition Support</h3>
+          <p>Educating communities on proper nutrition for healthier lives.</p>
+          <a href="#" class="program-btn">Learn More</a>
+        </div>
+      </div>
+
+      <div class="program-card">
+        <img src="https://scontent.fnbo19-1.fna.fbcdn.net/v/t39.30808-6/518342308_782691474089633_6276446733781745099_n.jpg?_nc_cat=102&ccb=1-7&_nc_sid=13d280&_nc_ohc=T0VvPSWNEsgQ7kNvwE8aZ4B&_nc_oc=AdqYRMVsM1W9gsG_MPNtekiGo08u6BcWl-jipPk75bz2Lfyl_KbeTBYWSSLoHT-DoBE&_nc_zt=23&_nc_ht=scontent.fnbo19-1.fna&_nc_gid=KCxOgtXR9I0ftFHOItxBtQ&_nc_ss=7a3a8&oh=00_Af0n5rq9ztgVlcY66gmXj2Q5bJGsnw0Pqrj1yp38In2Uiw&oe=69D30AFD" alt="">
+        <div class="program-content">
+          <h3>Mentorship Training</h3>
+          <p>Guiding girls through mentorship to build confidence and leadership.</p>
+          <a href="#" class="program-btn">Learn More</a>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+<style>
+  /* ================= PROGRAMS ================= */
+.programs {
+  padding: 120px 0;
+  background: #fff0f6; /* baby pink background */
+}
+
+/* CONTAINER */
+.container {
+  width: 90%;
+  max-width: 1200px;
+  margin: auto;
+}
+
+/* ================= HEADER ================= */
+.section-header {
+  max-width: 700px;
+  margin-bottom: 60px;
+}
+
+.section-tag {
+  font-size: 12px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: #d81b60; /* strong pink */
+  font-weight: 700;
+}
+
+.section-header h2 {
+  font-size: 48px;
+  font-weight: 800;
+  margin: 15px 0;
+  color: #111; /* black */
+  line-height: 1.2;
+}
+
+.section-header p {
+  font-size: 17px;
+  color: #444;
+  line-height: 1.8;
+}
+
+/* ================= GRID ================= */
+.programs-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+}
+
+/* ================= CARD ================= */
+.program-card {
+  background: #ffffff;
+  border-radius: 16px;
+  overflow: hidden;
+
+  box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+
+  transition: all 0.3s ease;
+}
+
+.program-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 50px rgba(0,0,0,0.12);
+}
+
+/* IMAGE */
+.program-card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+/* CONTENT */
+.program-content {
+  padding: 20px;
+}
+
+.program-card h3 {
+  font-size: 18px;
+  font-weight: 700;
+  color: #000; /* black heading */
+  margin-bottom: 8px;
+}
+
+.program-card p {
+  font-size: 15px;
+  color: #555;
+  line-height: 1.7;
+  margin-bottom: 15px;
+}
+
+/* ================= BUTTON ================= */
+.program-btn {
+  display: inline-block;
+  padding: 10px 22px;
+
+  font-size: 14px;
+  font-weight: 600;
+
+  color: #d81b60; /* pink text */
+  text-decoration: none;
+
+  border: 2px solid #d81b60;
+  border-radius: 25px;
+
+  transition: all 0.3s ease;
+}
+
+/* HOVER */
+.program-btn:hover {
+  background: #d81b60;
+  color: #fff;
+  transform: translateY(-2px);
+}
+
+/* ================= RESPONSIVE ================= */
+@media (max-width: 1000px) {
+  .programs-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 700px) {
+  .programs-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .section-header h2 {
+    font-size: 32px;
+  }
+}
+</style>
+
+<!-- ================= IMPACT SECTION ================= -->
+<section class="impact-section" id="impactSection">
+
+  <!-- HEADER -->
+  <div class="impact-header fade-in">
+    <span class="section-tag">Our Impact</span>
+
+    <h2>
+      Creating measurable change<br>
+      in communities
+    </h2>
+
+    <p>
+      Through our programs, we continue to reach and transform lives,
+      creating lasting impact for girls and young women.
+    </p>
+  </div>
+
+  <!-- GRID -->
+  <div class="impact-grid fade-in">
+
+    <div class="impact-card">
+      <h3 class="counter" data-target="15000">0</h3>
+      <p>Girls Empowered</p>
+      <div class="progress"><div class="bar" data-width="85"></div></div>
+    </div>
+
+    <div class="impact-card">
+      <h3 class="counter" data-target="20">0</h3>
+      <p>Communities Reached</p>
+      <div class="progress"><div class="bar" data-width="65"></div></div>
+    </div>
+
+    <div class="impact-card">
+      <h3 class="counter" data-target="50">0</h3>
+      <p>Active Volunteers</p>
+      <div class="progress"><div class="bar" data-width="75"></div></div>
+    </div>
+
+  </div>
+
+</section>
+
+<style>
+  /* ================= IMPACT SECTION ================= */
+.impact-section {
+  padding: 120px 8%;
+  background: linear-gradient(180deg, #ffffff 60%, #fff4f8 100%);
+  position: relative;
+}
+
+/* SOFT PINK GLOW (MATCH OTHER SECTIONS) */
+.impact-section::before {
+  content: "";
+  position: absolute;
+  width: 350px;
+  height: 350px;
+  background: #ff2d7a;
+  opacity: 0.05;
+  filter: blur(100px);
+  top: -100px;
+  right: -120px;
+}
+
+/* ================= HEADER ================= */
+.impact-header {
+  max-width: 700px;
+  margin-bottom: 60px;
+}
+
+.impact-header h2 {
+  font-size: 48px;
+  font-weight: 900;
+  color: #111;
+  margin: 15px 0;
+  line-height: 1.1;
+}
+
+.impact-header p {
+  font-size: 17px;
+  color: #555;
+  line-height: 1.8;
+}
+
+/* ================= GRID ================= */
+.impact-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+}
+
+/* ================= CARD ================= */
+.impact-card {
+  background: #fff;
+  border-radius: 18px;
+  padding: 30px;
+  box-shadow: 0 10px 35px rgba(0,0,0,0.06);
+  transition: 0.3s ease;
+}
+
+.impact-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 18px 50px rgba(0,0,0,0.1);
+}
+
+/* NUMBER */
+.impact-card h3 {
+  font-size: 42px;
+  font-weight: 900;
+  color: #ff2d7a;
+}
+
+/* TEXT */
+.impact-card p {
+  font-size: 15px;
+  color: #555;
+  margin-top: 6px;
+}
+
+/* ================= PROGRESS ================= */
+.progress {
+  height: 6px;
+  background: #eee;
+  border-radius: 50px;
+  margin-top: 16px;
+  overflow: hidden;
+}
+
+.bar {
+  height: 100%;
+  width: 0%;
+  background: #ff2d7a;
+  border-radius: 50px;
+  transition: width 1.8s ease;
+}
+
+/* ================= RESPONSIVE ================= */
+@media (max-width: 900px) {
+  .impact-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .impact-header h2 {
+    font-size: 34px;
+  }
+}
+</style>
+<script>
+
+const section = document.querySelector("#impactSection");
+const counters = document.querySelectorAll(".counter");
+const bars = document.querySelectorAll(".bar");
+
+let started = false;
+
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting && !started) {
+      started = true;
+      animateCounters();
+      animateBars();
+    }
+  });
+}, { threshold: 0.3 });
+
+observer.observe(section);
+
+/* COUNTERS */
+function animateCounters() {
+  counters.forEach(counter => {
+    const target = +counter.getAttribute("data-target");
+    let count = 0;
+    let speed = target / 120;
+
+    function update() {
+      count += speed;
+
+      if (count < target) {
+        counter.innerText = Math.floor(count) + "+";
+        requestAnimationFrame(update);
+      } else {
+        counter.innerText = target + "+";
+      }
+    }
+
+    update();
+  });
+}
+
+/* BARS */
+function animateBars() {
+  bars.forEach(bar => {
+    const width = bar.getAttribute("data-width");
+
+    setTimeout(() => {
+      bar.style.width = width + "%";
+    }, 300);
+  });
+}
+</script>
+
+<!-- ================= DONATE SECTION ================= -->
+<section id="donate" class="donate-section">
+  <div class="container">
+
+    <!-- SECTION TITLE -->
+    <div class="section-title">
+      <span class="tag">Make an Impact</span>
+      <h2>Change a Life Today</h2>
+      <p>Your kindness opens doors to education, health, and hope for young players striving for a brighter future.</p>
+    </div>
+
+    <!-- DONATION GRID -->
+    <div class="donate-grid">
+
+      <div class="donate-card">
+        <h3>Uniform A Childt</h3>
+        <p>Remove barriers so players can attend training and competitions with confidence.</p>
+        <div class="progress"><div style="width:65%"></div></div>
+        <button class="donate-btn" data-title="Pad Support">Donate Now</button>
+      </div>
+
+      <div class="donate-card">
+        <h3>Education Support</h3>
+        <p>Fund school fees, books, and materials that keep children learning and dreaming.</p>
+        <div class="progress"><div style="width:40%"></div></div>
+        <button class="donate-btn" data-title="Education Support">Donate Now</button>
+      </div>
+
+      <div class="donate-card">
+        <h3>Nutrition & Care</h3>
+        <p>Provide daily meals, hygiene kits, and essentials to nurture growing athletes.</p>
+        <div class="progress"><div style="width:75%"></div></div>
+        <button class="donate-btn" data-title="Nutrition & Care">Donate Now</button>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+<!-- ================= DONATION MODAL ================= -->
+<div id="donateModal" class="modal">
+  <div class="modal-content">
+    <span class="close">&times;</span>
+
+    <h2 id="donationTitle">Secure Donation</h2>
+    <p class="subtitle">Complete your contribution safely & confidently</p>
+
+    <!-- CURRENCY + AMOUNT -->
+    <div class="form-group">
+      <label>Currency</label>
+      <select id="currency">
+        <option value="KES">KES</option>
+        <option value="USD">USD</option>
+        <option value="EUR">EUR</option>
+        <option value="GBP">GBP</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label>Amount</label>
+      <input type="number" id="amount" placeholder="Amount (KES)">
+    </div>
+
+    <!-- PAYMENT METHODS -->
+    <div class="payment-methods">
+      <button class="method active" data-method="card">Card</button>
+      <button class="method" data-method="mpesa">M-Pesa</button>
+      <button class="method" data-method="paypal">PayPal</button>
+    </div>
+
+    <!-- CARD FORM -->
+    <div id="cardForm" class="payment-form active">
+      <input type="text" placeholder="Card Number" maxlength="19">
+      <input type="text" placeholder="Cardholder Name">
+      <div class="row">
+        <input type="text" placeholder="MM/YY">
+        <input type="text" placeholder="CVC">
+      </div>
+    </div>
+
+    <!-- M-PESA FORM -->
+    <div id="mpesaForm" class="payment-form">
+      <input type="text" placeholder="Phone (2547...)">
+    </div>
+
+    <!-- PAYPAL FORM -->
+    <div id="paypalForm" class="payment-form">
+      <input type="email" placeholder="PayPal Email">
+    </div>
+
+    <button class="pay-btn">Complete Payment</button>
+  </div>
+</div>
+
+<!-- ================= STYLES ================= -->
+<style>
+  :root {
+    --pink: #ff2d7a;
+    --baby-pink: #ff8fb8;
+    --black: #0f0f14;
+    --white: #ffffff;
+  }
+
+  /* DONATE SECTION */
+  .donate-section {
+    padding: 120px 8%;
+    background: var(--baby-pink);
+    color: var(--black);
+    font-family: Arial, Helvetica, sans-serif;
+  }
+
+  .section-title {
+    max-width: 700px;
+    margin-bottom: 70px;
+  }
+
+  .section-title .tag {
+    background: var(--pink);
+    color: var(--white);
+    padding: 6px 14px;
+    font-size: 12px;
+    border-radius: 20px;
+    display: inline-block;
+    margin-bottom: 20px;
+  }
+
+  .section-title h2 {
+    font-size: 48px;
+    font-weight: 900;
+    margin-bottom: 15px;
+    color: #000;
+  }
+
+  .section-title p {
+    color: #333;
+    font-size: 18px;
+    line-height: 1.7;
+  }
+
+  /* DONATE GRID */
+  .donate-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+  }
+
+  /* DONATE CARD */
+  .donate-card {
+    background: linear-gradient(145deg, #16161a, #0a0a0e);
+    border-radius: 18px;
+    padding: 30px;
+    border: 1px solid rgba(255,45,122,0.3);
+    transition: 0.3s;
+    position: relative;
+    color: white;
+  }
+
+  .donate-card:hover {
+    transform: translateY(-10px);
+    border-color: var(--pink);
+  }
+
+  .donate-card h3 {
+    font-size: 22px;
+    color: var(--white);
+    margin-bottom: 10px;
+  }
+
+  .donate-card p {
+    color: #ccc;
+    font-size: 15px;
+    line-height: 1.6;
+    margin-bottom: 25px;
+  }
+
+  .progress {
+    height: 8px;
+    background: #222;
+    border-radius: 10px;
+    overflow: hidden;
+    margin-bottom: 25px;
+  }
+
+  .progress div {
+    height: 100%;
+    background: linear-gradient(90deg, var(--pink), var(--baby-pink));
+  }
+
+  .donate-btn {
+    width: 100%;
+    padding: 14px;
+    border: none;
+    background: var(--pink);
+    color: white;
+    font-weight: bold;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 0.3s;
+  }
+
+  .donate-btn:hover {
+    background: var(--baby-pink);
+    color: var(--black);
+  }
+
+  /* MODAL */
+  .modal {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.85);
+    backdrop-filter: blur(10px);
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+  }
+
+  .modal-content {
+    background: var(--white);
+    padding: 40px;
+    width: 90%;
+    max-width: 500px;
+    border-radius: 16px;
+    box-shadow: 0 25px 60px rgba(0,0,0,0.25);
+    position: relative;
+    animation: fadeIn 0.4s ease;
+  }
+
+  .close {
+    position: absolute;
+    right: 20px;
+    top: 15px;
+    font-size: 26px;
+    color: var(--pink);
+    cursor: pointer;
+  }
+
+  h2#donationTitle {
+    color: var(--pink);
+    margin-bottom: 5px;
+  }
+
+  .subtitle {
+    color: #555;
+    margin-bottom: 20px;
+  }
+
+  .form-group {
+    margin-bottom: 15px;
+  }
+
+  label {
+    font-size: 14px;
+    color: #333;
+  }
+
+  input, select {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #dcdcdc;
+    border-radius: 8px;
+    margin-top: 5px;
+    background: #f9f9f9;
+  }
+
+  .payment-methods {
+    display: flex;
+    gap: 10px;
+    margin: 20px 0;
+  }
+
+  .method {
+    flex: 1;
+    padding: 10px;
+    border: none;
+    border-radius: 8px;
+    background: #eee;
+    cursor: pointer;
+  }
+
+  .method.active {
+    background: var(--black);
+    color: var(--white);
+  }
+
+  .payment-form {
+    display: none;
+  }
+
+  .payment-form.active {
+    display: block;
+  }
+
+  .row {
+    display: flex;
+    gap: 10px;
+  }
+
+  .pay-btn {
+    width: 100%;
+    margin-top: 25px;
+    padding: 14px;
+    border: none;
+    border-radius: 8px;
+    background: var(--pink);
+    color: var(--white);
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+  }
+
+  .pay-btn:hover {
+    background: var(--baby-pink);
+    color: var(--black);
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+</style>
+
+<!-- ================= SCRIPT ================= -->
+<script>
+  const modal = document.getElementById("donateModal");
+  const closeBtn = document.querySelector(".close");
+  const donationTitle = document.getElementById("donationTitle");
+  const currencySelect = document.getElementById("currency");
+  const amountInput = document.getElementById("amount");
+
+  // Open Modal
+  document.querySelectorAll(".donate-btn").forEach(btn => {
+    btn.addEventListener("click", () => {
+      donationTitle.innerText = btn.dataset.title;
+      modal.style.display = "flex";
+      document.body.style.overflow = "hidden";
+    });
+  });
+
+  // Close Modal
+  closeBtn.addEventListener("click", () => {
+    modal.style.display = "none";
+    document.body.style.overflow = "auto";
+  });
+
+  window.addEventListener("click", e => {
+    if (e.target === modal) {
+      modal.style.display = "none";
+      document.body.style.overflow = "auto";
+    }
+  });
+
+  // Currency Update
+  currencySelect.addEventListener("change", () => {
+    amountInput.placeholder = `Amount (${currencySelect.value})`;
+  });
+
+  // Payment Method Switching
+  const methodButtons = document.querySelectorAll(".method");
+  const forms = {
+    card: document.getElementById("cardForm"),
+    mpesa: document.getElementById("mpesaForm"),
+    paypal: document.getElementById("paypalForm"),
+  };
+
+  methodButtons.forEach(btn => {
+    btn.addEventListener("click", () => {
+      methodButtons.forEach(b => b.classList.remove("active"));
+      btn.classList.add("active");
+
+      Object.values(forms).forEach(form => form.classList.remove("active"));
+      forms[btn.dataset.method].classList.add("active");
+    });
+  });
+
+  document.querySelector(".pay-btn").addEventListener("click", () => {
+    alert("Processing your secure donation. Thank you for your generosity!");
+  });
+</script>
+
+  
+<footer class="footer">
+
+  <div class="footer-container">
+
+    <!-- BRAND -->
+    <div class="footer-box">
+      <h3>BintiCare Foundation</h3>
+      <p>
+        Empowering girls through education, dignity,
+        mentorship, and opportunity.
+      </p>
+    </div>
+
+    <!-- QUICK LINKS -->
+    <div class="footer-box">
+      <h4>Quick Links</h4>
+      <a href="#about">About</a>
+      <a href="#programs">Programs</a>
+      <a href="#impact">Impact</a>
+      <a href="#contact">Contact</a>
+    </div>
+
+    <!-- CONTACT FORM -->
+    <div class="footer-box contact-form">
+      <h4>Contact Us</h4>
+
+      <form id="contact-form">
+
+        <input type="text" name="name" placeholder="Full Name" required>
+
+        <input type="email" name="email" placeholder="Email Address" required>
+
+        <input type="tel" name="phone" placeholder="Phone Number">
+
+        <select name="interest" required>
+          <option value="">I am interested in...</option>
+          <option value="Volunteering">Volunteering</option>
+          <option value="Donations">Donations</option>
+          <option value="Partnership">Partnership</option>
+          <option value="General Inquiry">General Inquiry</option>
+        </select>
+
+        <input type="text" name="subject" placeholder="Subject">
+
+        <textarea name="message" placeholder="Your message..." rows="4" required></textarea>
+
+        <button type="submit">Send Message</button>
+
+        <p class="form-status" id="form-status"></p>
+
+      </form>
+    </div>
+
+  </div>
+
+  <!-- SOCIAL -->
+  <div class="socials">
+    <a href="#">Facebook</a>
+    <a href="#">Instagram</a>
+    <a href="#">X</a>
+    <a href="#">YouTube</a>
+  </div>
+
+  <!-- BOTTOM -->
+  <div class="footer-bottom">
+    <p>© 2026 BintiCare Foundation. All Rights Reserved.</p>
+    <p>Developed & Managed by <strong>Baba Nile Digital Africa</strong></p>
+  </div>
+
+</footer>
+
+<!-- ================= EMAILJS ================= -->
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+
+<script>
+  // 🔑 Initialize EmailJS
+  emailjs.init("YOUR_PUBLIC_KEY");
+
+  const form = document.getElementById("contact-form");
+  const statusText = document.getElementById("form-status");
+
+  form.addEventListener("submit", function(e) {
+    e.preventDefault();
+
+    statusText.textContent = "Sending...";
+
+    emailjs.sendForm(
+      "YOUR_SERVICE_ID",
+      "YOUR_TEMPLATE_ID",
+      this
+    )
+    .then(() => {
+      statusText.textContent = "Message sent successfully!";
+      statusText.style.color = "#00e676";
+      form.reset();
+    })
+    .catch((error) => {
+      statusText.textContent = "Failed to send. Try again.";
+      statusText.style.color = "#ff5252";
+      console.error(error);
+    });
+  });
+</script>
+
+<!-- ================= STYLES ================= -->
+<style>
+
+/* ================= FOOTER ================= */
+.footer {
+  background: #0f0f10;
+  color: #fff;
+  padding: 90px 8% 30px;
+  font-family: system-ui, sans-serif;
+}
+
+/* ================= GRID ================= */
+.footer-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1.3fr;
+  gap: 50px;
+}
+
+/* ================= TEXT ================= */
+.footer-box h3 {
+  font-size: 22px;
+  margin-bottom: 12px;
+}
+
+.footer-box h4 {
+  font-size: 18px;
+  margin-bottom: 12px;
+}
+
+.footer-box p {
+  color: #bbb;
+  line-height: 1.7;
+}
+
+/* ================= LINKS ================= */
+.footer-box a {
+  display: block;
+  color: #bbb;
+  text-decoration: none;
+  margin-bottom: 8px;
+  transition: 0.3s;
+}
+
+.footer-box a:hover {
+  color: #ff2e7a;
+}
+
+/* ================= FORM ================= */
+.contact-form form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.contact-form input,
+.contact-form select,
+.contact-form textarea {
+  padding: 12px 14px;
+  border: none;
+  border-radius: 8px;
+  background: #1a1a1a;
+  color: #fff;
+  font-size: 14px;
+  outline: none;
+}
+
+.contact-form textarea {
+  resize: none;
+}
+
+.contact-form select {
+  cursor: pointer;
+}
+
+.contact-form input::placeholder,
+.contact-form textarea::placeholder {
+  color: #777;
+}
+
+/* BUTTON */
+.contact-form button {
+  padding: 12px;
+  background: linear-gradient(135deg, #ff2e7a, #ff80ab);
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.contact-form button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px rgba(255, 46, 122, 0.3);
+}
+
+/* STATUS TEXT */
+.form-status {
+  font-size: 13px;
+  margin-top: 5px;
+  color: #aaa;
+}
+
+/* ================= SOCIAL ================= */
+.socials {
+  margin-top: 40px;
+  text-align: center;
+}
+
+.socials a {
+  margin: 0 10px;
+  color: #bbb;
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+.socials a:hover {
+  color: #ff2e7a;
+}
+
+/* ================= BOTTOM ================= */
+.footer-bottom {
+  margin-top: 40px;
+  padding-top: 20px;
+  border-top: 1px solid #222;
+  text-align: center;
+  color: #888;
+  font-size: 14px;
+}
+
+/* ================= RESPONSIVE ================= */
+@media (max-width: 900px) {
+  .footer-container {
+    grid-template-columns: 1fr;
+  }
+}
+
+</style>
+</body>
+</html>
